@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package examen1erparcial;
-
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 import java.sql.Connection;
@@ -17,16 +16,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+
 /**
  *
- * @author josea
+ * @author skul1
  */
-public class NuevoEmpleado extends javax.swing.JFrame {
+public class ActualizarEmpleado extends javax.swing.JFrame {
 
     /**
-     * Creates new form NuevoEmpleado
+     * Creates new form ActualizarEmpleado
      */
-    public NuevoEmpleado() {
+    public ActualizarEmpleado() {
         initComponents();
     }
 
@@ -40,67 +40,87 @@ public class NuevoEmpleado extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel9 = new javax.swing.JLabel();
+        field_usuario = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        field_id_usuario = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         field_estatus = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        field_pass = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         field_perfil = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        field_pass = new javax.swing.JTextField();
-        field_usuario = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Registrar Empleado");
+        jLabel9.setText("Actualizar Empleado");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 430, 120));
+
+        field_usuario.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(field_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 220, 30));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Usuario");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, 52));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ID usuario a editar");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 52));
+
+        field_id_usuario.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(field_id_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 220, 30));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Estatus");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, -1, 52));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, 52));
 
         field_estatus.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        getContentPane().add(field_estatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 220, 30));
+        field_estatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_estatusActionPerformed(evt);
+            }
+        });
+        getContentPane().add(field_estatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 220, 30));
+
+        field_pass.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        field_pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_passActionPerformed(evt);
+            }
+        });
+        getContentPane().add(field_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 220, 30));
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Password");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, 52));
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Perfil");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, 52));
+
+        field_perfil.setEditable(false);
+        field_perfil.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        field_perfil.setText("1");
+        getContentPane().add(field_perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 220, 30));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setText("Registrar");
+        jButton1.setText("Actualizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Usuario");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, -1, 52));
-
-        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Perfil");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, 52));
-
-        field_perfil.setEditable(false);
-        field_perfil.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        field_perfil.setText("1");
-        getContentPane().add(field_perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 220, 30));
-
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Password");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, 52));
-
-        field_pass.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        getContentPane().add(field_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 220, 30));
-
-        field_usuario.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        getContentPane().add(field_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 220, 30));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/gradient.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 750));
@@ -109,41 +129,17 @@ public class NuevoEmpleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // conectar a la bd
-        Connection con = null;
-        try {
-            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/bdcoorsa", "root", "");
-        } catch (SQLException ex) {
-            Logger.getLogger(TablaSupervisor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // obtener todos los datos de los textfield
-        String nombre = field_usuario.getText();
-        String estatus = field_estatus.getText();
-        String pass = field_pass.getText();
-        int perfil = Integer.parseInt(field_perfil.getText());
-
-        // crear una sentencia sql para insertar los datos en la tabla empleado
-        String sql = "INSERT INTO tpermisos (Usuario,Estatus,Password,perfil) VALUES ('" + nombre + "','" + estatus + "'," + pass + ",'" + perfil + "')";
-
-        // ejecutar la sentencia sql
-        try {
-            Statement st = (Statement) con.createStatement();
-            st.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "Registro exitoso");
-        } catch (SQLException ex) {
-            Logger.getLogger(TablaSupervisor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // limpiar los campos
-        field_usuario.setText("");
-        field_estatus.setText("");
-        field_pass.setText("");
-        field_perfil.setText("");
-        
-
-
-
+       
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void field_estatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_estatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_estatusActionPerformed
+
+    private void field_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_passActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_passActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,26 +158,27 @@ public class NuevoEmpleado extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NuevoEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NuevoEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NuevoEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NuevoEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NuevoEmpleado().setVisible(true);
+                new ActualizarEmpleado().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField field_estatus;
+    private javax.swing.JTextField field_id_usuario;
     private javax.swing.JTextField field_pass;
     private javax.swing.JTextField field_perfil;
     private javax.swing.JTextField field_usuario;
@@ -190,6 +187,7 @@ public class NuevoEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables

@@ -1,0 +1,34 @@
+<component name="libraryTable">
+  <library name="RojeruSan Librerías">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RojeruSan.full.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSDate.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSScaleLabel.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RojeruSan.full_9.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSComponentShade.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RojeruSan.full_6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSAnimation.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSDragDropFiles.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSUtilities.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSMaterialComponents_2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RojeruSan.lib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSMaterialComponents_3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSButtonGradiente.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RojeruSan.parte1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSFoto_v1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSPanelEffect.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSProgressBar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSButtonCustom.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSButtonIconI.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSNotify v1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSPanelGradiente.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSPanelSlider.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSCustomPopuMenu.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSPanelCircleBorder.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RSTableMetro.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RojeruSan Librerías/RojeruSan.full_9.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

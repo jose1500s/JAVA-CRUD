@@ -37,17 +37,15 @@ public final class TablaSupervisor extends javax.swing.JFrame {
         Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/bdcoorsa", "root", "");
 
         // crear la consulta
-        String sql = "SELECT * FROM templeados";
+        String sql = "SELECT * FROM tpermisos WHERE perfil=1";
         // crear una tabla
         DefaultTableModel modelo = new DefaultTableModel();
         // agregar las columnas
-        modelo.addColumn("ID_Empleado");
-        modelo.addColumn("Fecha Registro");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("id estatus");
-        modelo.addColumn("id horario");
-        modelo.addColumn("id pago hora");
-        modelo.addColumn("id empresa");
+        modelo.addColumn("id_usuario");
+        modelo.addColumn("Usuario");
+        modelo.addColumn("Estatus");
+        modelo.addColumn("Password");
+        modelo.addColumn("Perfil");
 
         // crear una variable de tipo sentencia
         Statement st;
@@ -60,13 +58,11 @@ public final class TablaSupervisor extends javax.swing.JFrame {
             while(rs.next()) {
                 // agregar filas
                 modelo.addRow(new Object[]{
-                    rs.getString("id_empleados"),
-                    rs.getString("fecha_registro"),
-                    rs.getString("nombre_completo"),
-                    rs.getString("id_estatus"),
-                    rs.getString("id_horario"),
-                    rs.getString("id_pagohora"),
-                    rs.getString("id_empresa")
+                    rs.getString("id_usuario"),
+                    rs.getString("Usuario"),
+                    rs.getString("Estatus"),
+                    rs.getString("Password"),
+                    rs.getString("Perfil")
                 });
             }
             // asignar el modelo a la tabla
@@ -125,6 +121,11 @@ public final class TablaSupervisor extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Eliminar Empleado");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("Actualizar Tabla");
@@ -160,6 +161,11 @@ public final class TablaSupervisor extends javax.swing.JFrame {
 
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton7.setText("Actualizar Empleado");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -233,18 +239,16 @@ public final class TablaSupervisor extends javax.swing.JFrame {
         }
 
         // crear la consulta
-        String sql2 = "SELECT * FROM templeados WHERE id_empleados = '"+field_busqueda_empleado.getText()+"'";
+        String sql2 = "SELECT * FROM tpermisos WHERE id_usuario = '"+field_busqueda_empleado.getText()+"' and perfil = 1";
         
         // crear una tabla
         DefaultTableModel modelo = new DefaultTableModel();
         // agregar las columnas
-        modelo.addColumn("ID_Empleado");
-        modelo.addColumn("Fecha Registro");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("id estatus");
-        modelo.addColumn("id horario");
-        modelo.addColumn("id pago hora");
-        modelo.addColumn("id empresa");
+       modelo.addColumn("id_usuario");
+        modelo.addColumn("Usuario");
+        modelo.addColumn("Estatus");
+        modelo.addColumn("Password");
+        modelo.addColumn("Perfil");
 
         // crear una variable de tipo sentencia
         Statement st;
@@ -259,14 +263,11 @@ public final class TablaSupervisor extends javax.swing.JFrame {
             } else {
                 if(rs.next()) {
                     modelo.addRow(new Object[]{
-                            rs.getString("id_empleados"),
-                            rs.getString("fecha_registro"),
-                            rs.getString("nombre_completo"),
-                            rs.getString("id_estatus"),
-                            rs.getString("id_horario"),
-                            rs.getString("id_pagohora"),
-                            rs.getString("id_empresa")
-
+                            rs.getString("id_usuario"),
+                            rs.getString("Usuario"),
+                            rs.getString("Estatus"),
+                            rs.getString("Password"),
+                            rs.getString("Perfil")
                     });
                     tabla_empleados.setModel(modelo);
                 } else {
@@ -299,6 +300,34 @@ public final class TablaSupervisor extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         // conectar a la bd
+        java.sql.Connection con = null;
+        try {
+            con = (java.sql.Connection) DriverManager.getConnection("jdbc:mysql://localhost/bdcoorsa", "root", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(TablaSupervisor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        // crear una sentencia sql para insertar los datos en la tabla empleado
+        String sql = "DELETE FROM tpermisos WHERE id_usuario = '"+field_busqueda_empleado.getText()+"'";
+
+        // ejecutar la sentencia sql
+        try {
+            com.mysql.jdbc.Statement st = (com.mysql.jdbc.Statement) con.createStatement();
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Empleado eliminado correctamente");
+        } catch (SQLException ex) {
+            Logger.getLogger(TablaSupervisor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        ActualizarEmpleado actualizar = new ActualizarEmpleado();
+        actualizar.setVisible(true);
+        actualizar.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
